@@ -1,0 +1,203 @@
+/* Body & background */
+body {
+  margin: 0;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background: linear-gradient(to bottom, #cce7ff, #fff0f5);
+  overflow-x: hidden;
+  height: 100vh;
+  position: relative;
+}
+
+/* Magical floating clouds */
+body::before, body::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 120px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: floatCloud 40s linear infinite;
+}
+body::after {
+  width: 200px;
+  height: 80px;
+  top: 150px;
+  left: 70%;
+  opacity: 0.4;
+  animation-duration: 50s;
+}
+
+@keyframes floatCloud {
+  0% { transform: translateX(-400px); }
+  100% { transform: translateX(120vw); }
+}
+
+/* Book container */
+.book {
+  text-align: center;
+  padding: 30px;
+  position: relative;
+}
+
+/* Cover page */
+.cover {
+  background: pink;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(255, 182, 193, 0.7);
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sparkle effect on cover */
+.cover::after {
+  content: "✨";
+  position: absolute;
+  font-size: 24px;
+  color: white;
+  animation: sparkle 3s linear infinite;
+  top: 20px;
+  left: 50%;
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); opacity: 0.5; }
+  50% { transform: translateX(-50%) translateY(-10px) rotate(360deg); opacity: 1; }
+}
+
+/* Pages container */
+.pages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual wish page */
+.page {
+  width: 220px;
+  height: 150px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 15px;
+  position: relative;
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+/* Page hover effect for turning */
+.page:hover {
+  transform: rotateY(-15deg);
+  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+}
+
+/* Input box */
+.input-box {
+  margin-top: 25px;
+}
+.input-box input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 250px;
+  font-size: 16px;
+}
+.input-box button {
+  margin-left: 10px;
+  background: hotpink;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.input-box button:hover {
+  transform: scale(1.05);
+}
+
+/* Small timestamp style */
+.page small {
+  display: block;
+  margin-top: 10px;
+  color: #555;
+  font-size: 12px;
+}
+
+/* Princess illustration placeholder */
+.princess-illustration {
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+  width: 140px;
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Subtle glitter animation */
+.glitter {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff 0%, transparent 70%);
+  border-radius: 50%;
+  animation: sparkle-burst 1.5s infinite;
+}
+
+@keyframes sparkle-burst {
+  0% { transform: scale(0); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(0); opacity: 0; }
+}
+.pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  perspective: 1500px; /* Needed for 3D flip effect */
+}
+
+.page {
+  width: 220px;
+  height: 150px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 15px;
+  margin: 10px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.page:hover {
+  transform: rotateY(180deg);
+}
+
+/* Add front and back sides */
+.page::before, .page::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+}
+
+.page::before {
+  background: #fff;
+}
+
+.page::after {
+  background: #ffe6f0; /* back of page */
+  transform: rotateY(180deg);
+}

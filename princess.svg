@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="140" height="140">
+  <!-- Princess body -->
+  <circle cx="100" cy="60" r="20" fill="#FFD1DC"/> <!-- face -->
+  <path d="M80,80 Q100,150 120,80 Z" fill="#FFB6C1"/> <!-- dress -->
+  <!-- Hair -->
+  <path d="M80,50 Q100,10 120,50" fill="#8B4513"/>
+  <!-- Crown -->
+  <polygon points="95,30 100,10 105,30" fill="gold" stroke="#DAA520" stroke-width="1"/>
+  <!-- Eyes -->
+  <circle cx="92" cy="58" r="2" fill="#000"/>
+  <circle cx="108" cy="58" r="2" fill="#000"/>
+  <!-- Smile -->
+  <path d="M92,65 Q100,70 108,65" stroke="#000" fill="transparent" stroke-width="1"/>
+</svg>
